@@ -9,9 +9,11 @@ class HomeController extends Controller
 {
     public function index(){
         $movies = movie::all();
-        dump($movies);
+        $movies1 = movie::where('original_title','The Godfather')->get();
+        dump($movies1[0]['original_title'] );
         $data = [
-            'movies' => $movies
+            'movies' => $movies,
+            
         ];
         return view('home',$data);
     }
